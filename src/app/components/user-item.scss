@@ -1,0 +1,19 @@
+@import "variables.scss";
+
+.user-item {
+  .user-fig {
+    display: inline-block;
+    width: 15%;
+
+    img {
+      border-radius: 50%;
+    }
+  }
+  .user-info {
+    display: inline-block;
+  }
+}
+
+.user-item:nth-child(odd) {
+  background: $white;
+}

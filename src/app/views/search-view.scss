@@ -1,0 +1,22 @@
+@import "variables.scss";
+@import "~breakpoint-sass/stylesheets/breakpoint";
+
+.search-view {
+  .red {
+    color: $red;
+  }
+
+  .feed-list {
+    padding-bottom: 50px;
+  }
+}
+
+$bp: 0px 768px;
+
+@include breakpoint($bp) {
+  .search-view {
+    .search-bar {
+      margin: 0px 10px;
+    }
+  }
+}

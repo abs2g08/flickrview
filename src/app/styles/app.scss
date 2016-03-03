@@ -1,0 +1,45 @@
+@import "variables.scss";
+@import "mixins.scss";
+@import "~breakpoint-sass/stylesheets/breakpoint";
+
+#app {
+  min-width: 298px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+p {
+  margin: 0px 10px;
+}
+
+.svg-loader {
+  display: block;
+  width: 150px;
+  height: 100px;
+
+  margin: 50px auto;
+  border-radius: 20px;
+
+  background-color: darken($background, 5);
+  background-image: url('../images/loader.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@include setFontSize($s-font-size);
+
+@include breakpoint($s-breakpoint) {
+  p {
+    margin: 0px 0px;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  @include setFontSize($m-font-size);
+}

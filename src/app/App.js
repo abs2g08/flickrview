@@ -1,20 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Menu } from './components';
-import { LoginStore } from './stores';
-import connectToStores from 'alt/utils/connectToStores';
 
 class App extends React.Component {
-  static getStores() {
-    return [LoginStore];
-  }
-
-  static getPropsFromStores() {
-    return {
-      loginStore: LoginStore.getState()
-    };
-  }
-
   constructor(props) {
     super(props);
 
@@ -42,13 +30,12 @@ class App extends React.Component {
   render() {
     const drawOpen = this.state.drawOpen;
     const containerClass = classNames('app', { drawOpen });
-    const loginStore = this.props.loginStore;
 
     return (
       <div className={containerClass}>
         <div className='pusher'
           onClick={this.closeDraw.bind(this)}>
-          <Menu onClick={this.onToggle.bind(this)} loginStore={loginStore}/>
+          <Menu onClick={this.onToggle.bind(this)}/>
           <main className='container content'>
             {this.props.children}
           </main>
@@ -58,4 +45,4 @@ class App extends React.Component {
   }
 }
 
-export default connectToStores(App);
+export default App;

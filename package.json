@@ -1,5 +1,5 @@
 {
-  "name": "flickerview",
+  "name": "flickrview",
   "version": "1.0.0",
   "description": "a simple flicker viewer",
   "main": "index.js",
@@ -75,6 +75,6 @@
     "react": "0.14.2",
     "react-dom": "0.14.2",
     "react-router": "1.0.0",
-    "request": "^2.69.0"
+    "request": "2.69.0"
   }
 }

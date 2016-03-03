@@ -8,15 +8,21 @@ const respondOrDie = function(err, resp) {
   }
 };
 
-const setPagination = function(session, pagination) {
-  if(pagination.next_url) {
-    session.next_url = pagination.next_url;
-  } else {
-    session.next_url = null;
-  }
-};
+const jsonClean = function(str){
+  str = str
+         .replace(/\\n/g, "\\n")
+         .replace(/\\'/g, "\\'")
+         .replace(/\\"/g, '\\"')
+         .replace(/\\&/g, "\\&")
+         .replace(/\\r/g, "\\r")
+         .replace(/\\t/g, "\\t")
+         .replace(/\\b/g, "\\b")
+         .replace(/\\f/g, "\\f");
+  str = str.replace(/[\u0000-\u0019]+/g,"");
+  return JSON.parse(str);
+}
 
 export {
   respondOrDie,
-  setPagination
+  jsonClean
 };

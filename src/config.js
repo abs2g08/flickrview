@@ -17,6 +17,9 @@ module.exports = {
     port: 3000,
     host: 'localhost'
   },
+  cors: {
+    origin: '*'//https://api.flickr.com/
+  },
   filename: {
     app: 'app.js',
     style: 'style.css'

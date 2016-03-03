@@ -1,18 +1,15 @@
 import { HomeActions } from '../actions';
 import axios from 'axios';
+import urls from '../const/urls';
 
 const HomeSource = {
-  getMyFeed: {
+  getFeed: {
     remote(self, opts={}) {
-      let url = '/feed/self';
-
-      if(opts.next) {
-        url = `${url}?next=true`;
-      }
+      const url = urls.publicPhotoFeed('potato');
       return axios.get(url);
     },
-    success: HomeActions.getMyFeedSuccess,
-    error: HomeActions.getMyFeedError
+    success: HomeActions.getFeedSuccess,
+    error: HomeActions.getFeedError
   }
 };
 

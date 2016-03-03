@@ -1,5 +1,4 @@
 import React from 'react';
-import Iso from 'iso';
 import routes from '../../app/routes';
 import { renderToString } from 'react-dom/server';
 import { match, RoutingContext } from 'react-router';
@@ -26,26 +25,12 @@ const index = (req, res)=> {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search);
     } else if (renderProps) {
       const content = renderToString(<RoutingContext {...renderProps} />);
-      const iso = new Iso();
-
-      if (req.session.access_token) {
-        iso.add(content, {
-          isLoggedIn: true,
-          user: req.session.user
-        });
-      } else {
-        iso.add(content, {
-          isLoggedIn: false,
-          user: null
-        });
-      }
-
       res.render('index', {
         args: {
           network,
           filename
         },
-        content: iso.render()
+        content
       });
     }
   })

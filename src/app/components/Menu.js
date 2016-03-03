@@ -3,15 +3,6 @@ import { Link } from 'react-router';
 
 export default class Menu extends React.Component {
   render() {
-    const isLoggedIn = this.props.loginStore.isLoggedIn;
-
-    let login;
-    if(isLoggedIn) {
-      login = <a className='logout' href='/logout'>logout</a>
-    } else {
-      login = <a className='login' href='/authorize_user'>login</a>
-    }
-
     return (
       <header className='header'>
         <div className='container'>
@@ -21,13 +12,10 @@ export default class Menu extends React.Component {
             to='/'></a>
 
           <Link className='header_logo'
-            to='/'>Instaview</Link>
+            to='/'>Flickrview</Link>
 
           <nav className='menu'>
             <Link to='/home'>home</Link>
-            <Link to='/search'>search</Link>
-            <Link to='/about'>about</Link>
-            {login}
           </nav>
 
         </div>
@@ -37,6 +25,5 @@ export default class Menu extends React.Component {
 }
 
 Menu.propTypes = {
-  onClick: React.PropTypes.func,
-  loginStore: React.PropTypes.object
+  onClick: React.PropTypes.func
 };

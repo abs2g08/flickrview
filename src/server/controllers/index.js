@@ -1,9 +1,7 @@
-import auth from './auth';
-import insta from './insta';
 import iso from './iso';
+import flickr from './flickr';
 
 export {
-  auth,
-  insta,
-  iso
+  iso,
+  flickr
 };

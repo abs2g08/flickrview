@@ -1,5 +1,4 @@
 import React from 'react';
-//import classNames from 'classnames';
 
 class NotFoundView extends React.Component {
   render() {

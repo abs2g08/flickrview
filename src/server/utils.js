@@ -8,10 +8,17 @@ const respondOrDie = function(err, resp) {
   }
 };
 
+//https://www.codeschool.com/discuss/t/trying-to-call-flickr-api-with-angularjs-but-getting-syntaxerror-unexpected-token-when-using-nojsoncallback-1/24832/2
 const JSONP = {
   parse(str) {
-    str = str.substring(str.indexOf('(') + 1, str.lastIndexOf(')'));
-    return JSON.parse(str);
+    //str = str.replace('jsonFlickrFeed(', '');
+    //str = str.replace('})', '}');
+    //str = str.stringify(data, undefined, 2);
+
+    str = str.trim().replace(/^jsonFlickrFeed\(/,'').replace(/\}\)$/,'}');
+    str = str.replace(/\\'/g,"'");
+    str = JSON.parse(str);
+    return str;
   }
 }
 

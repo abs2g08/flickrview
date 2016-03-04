@@ -12,12 +12,14 @@ const publicPhotoFeed = (req, res)=> {
   const url = `${flickerRoot}/services/feeds/photos_public.gne${queryStr}`;
 
   request.get({
-    url
+    url,
+    json: true
   }, (err, resp, body)=> {
     respondOrDie(err, ()=> {
       body = JSONP.parse(body);
+      //console.log(body);
       res.send({
-        items: body.items
+        items: body
       });
     });
   });

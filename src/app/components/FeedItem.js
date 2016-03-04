@@ -1,5 +1,5 @@
 import React from 'react';
-// import moment from 'moment';
+import moment from 'moment';
 // import urls from '../const/urls';
 // import { genKey } from '../utils/commUtil';
 //import classNames from 'classnames';
@@ -20,9 +20,20 @@ import React from 'react';
 
 export default class FeedItem extends React.Component {
   render() {
+    const item = this.props.item || {};
     return (
-      <article className='feed-item' key={key}>
-
+      <article className='feed-item'>
+        <div class='title'>
+          {item.title}
+        </div>
+        <div className='meta'>
+          <div className='auth'>
+            {item.author}
+          </div>
+          <div className='pub'>
+            {item.published}
+          </div>
+        </div>
       </article>
     );
   }

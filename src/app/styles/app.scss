@@ -28,6 +28,14 @@ p {
   background-repeat: no-repeat;
 }
 
+figure {
+  display: inline-block;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
 @include setFontSize($s-font-size);
 
 @include breakpoint($s-breakpoint) {

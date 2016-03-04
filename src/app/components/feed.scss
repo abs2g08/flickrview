@@ -8,54 +8,7 @@
     margin-bottom: 50px;
     border-radius: 3px;
   }
-
-  .feed-item-header {
-    height: 64px;
-    padding: 14px 20px;
-  }
-
-  .feed-profimg {
-    vertical-align: top;
-    width: 28px;
-    @include border-radius(50%);
-  }
-
-  .feed-username {
-    font-weight: bold;
-  }
-
-  .feed-meta {
-    a {
-      display: block;
-    }
-
-    line-height: 15px;
-    padding-left: 10px;
+  .meta {
     display: inline-block;
-  }
-
-  .feed-item-footer {
-    padding: 0 24px;
-  }
-
-  .feed-likes {
-    margin: 20px 0;
-  }
-
-  .feed-time {
-    float: right;
-    color: $gray-lt;
-  }
-
-  .comment-list {
-    margin-left: 0px;
-    list-style-type: none;
-  }
-
-  .button-rack {
-    margin-top: 15px;
-    button {
-      margin: 10px;
-    }
   }
 }

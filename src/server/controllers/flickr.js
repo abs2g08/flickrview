@@ -1,11 +1,21 @@
 import request from 'request';
-import { respondOrDie, JSONP } from '../utils';
+import { respondOrDie } from '../utils';
 
 const flickerRoot = 'https://api.flickr.com';
 
 function query(tag, tagmode='all', format='json') {
-  return `?tags=${tag}&tagmode=${tagmode}&format=${format}`; //nojsoncallback=?
+  return `?tags=${tag}&tagmode=${tagmode}&format=${format}`;
 };
+
+
+//https://www.codeschool.com/discuss/t/trying-to-call-flickr-api-with-angularjs-but-getting-syntaxerror-unexpected-token-when-using-nojsoncallback-1/24832
+function parseFlickrJSONP(str) {
+  //TO-DO: make funcitonal
+  str = str.trim().replace(/^jsonFlickrFeed\(/,'').replace(/\}\)$/,'}');
+  str = str.replace(/\\'/g,"'");
+  str = JSON.parse(str);
+  return str;
+}
 
 const publicPhotoFeed = (req, res)=> {
   const queryStr = query(req.query.tags);
@@ -16,10 +26,9 @@ const publicPhotoFeed = (req, res)=> {
     json: true
   }, (err, resp, body)=> {
     respondOrDie(err, ()=> {
-      body = JSONP.parse(body);
-      //console.log(body);
+      body = parseFlickrJSONP(body);
       res.send({
-        items: body
+        items: body.items
       });
     });
   });

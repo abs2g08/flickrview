@@ -20,18 +20,27 @@ import moment from 'moment';
 
 export default class FeedItem extends React.Component {
   render() {
-    const item = this.props.item || {};
+    let item = this.props.item || {};
+    item.published = moment(item.published).format('DD[th] MMMM YYYY [at] HH:mm');
     return (
       <article className='feed-item'>
-        <div class='title'>
-          {item.title}
-        </div>
+        <figure>
+          <img src={item.media.m}/>
+        </figure>
         <div className='meta'>
-          <div className='auth'>
-            {item.author}
+          <div class='title'>
+            <h3>{item.title}</h3>
           </div>
-          <div className='pub'>
-            {item.published}
+          <div className='meta'>
+            <div className='author'>
+              {item.author}
+            </div>
+            <div className='published'>
+              {item.published}
+            </div>
+            <div className='view-flicker'>
+
+            </div>
           </div>
         </div>
       </article>

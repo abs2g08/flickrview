@@ -1,10 +1,10 @@
 import request from 'request';
-import { respondOrDie, jsonClean } from '../utils';
+import { respondOrDie, JSONP } from '../utils';
 
 const flickerRoot = 'https://api.flickr.com';
 
 function query(tag, tagmode='all', format='json') {
-  return `?tags=${tag}&tagmode=${tagmode}&format=${format}&nojsoncallback=?`;
+  return `?tags=${tag}&tagmode=${tagmode}&format=${format}`; //nojsoncallback=?
 };
 
 const publicPhotoFeed = (req, res)=> {
@@ -15,11 +15,9 @@ const publicPhotoFeed = (req, res)=> {
     url
   }, (err, resp, body)=> {
     respondOrDie(err, ()=> {
-
-      const x = JSON.parse(JSON.stringify(body));
-      console.log(x);
+      body = JSONP.parse(body);
       res.send({
-        items: x.items
+        items: body.items
       });
     });
   });

@@ -8,21 +8,14 @@ const respondOrDie = function(err, resp) {
   }
 };
 
-const jsonClean = function(str){
-  str = str
-         .replace(/\\n/g, "\\n")
-         .replace(/\\'/g, "\\'")
-         .replace(/\\"/g, '\\"')
-         .replace(/\\&/g, "\\&")
-         .replace(/\\r/g, "\\r")
-         .replace(/\\t/g, "\\t")
-         .replace(/\\b/g, "\\b")
-         .replace(/\\f/g, "\\f");
-  str = str.replace(/[\u0000-\u0019]+/g,"");
-  return JSON.parse(str);
+const JSONP = {
+  parse(str) {
+    str = str.substring(str.indexOf('(') + 1, str.lastIndexOf(')'));
+    return JSON.parse(str);
+  }
 }
 
 export {
   respondOrDie,
-  jsonClean
+  JSONP
 };

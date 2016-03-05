@@ -6,9 +6,15 @@ import { loading } from '../utils/loadingUtil';
 import { redirect403 } from '../utils/httpUtil';
 
 class HomeStore {
+  static findItemByIds(authorId, itemId, items) {
+    return items.filter((item)=> {
+      return (item.author_id === authorId && item.id === itemId);
+    })[0];
+  }
+
   constructor() {
     this.state = {
-      feed: [],
+      items: [],
 
       loading: false,
       errorMsg: ''

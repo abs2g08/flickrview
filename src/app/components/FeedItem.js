@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import { Link } from 'react-router';
 // import urls from '../const/urls';
 // import { genKey } from '../utils/commUtil';
 //import classNames from 'classnames';
@@ -21,11 +22,13 @@ import moment from 'moment';
 export default class FeedItem extends React.Component {
   render() {
     let item = this.props.item || {};
-    item.published = moment(item.published).format('DD[th] MMMM YYYY [at] HH:mm');
+    item.published = moment(new Date(item.published)).format('DD[th] MMMM YYYY [at] HH:mm');
     return (
       <article className='feed-item'>
         <figure>
-          <img src={item.media.m}/>
+          <Link to={`detail/${item.author_id}/${item.id}`}>
+            <img src={item.media.m}/>
+          </Link>
         </figure>
         <div className='meta'>
           <div class='title'>

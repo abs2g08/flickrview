@@ -7,7 +7,6 @@ function query(tag, tagmode='all', format='json') {
   return `?tags=${tag}&tagmode=${tagmode}&format=${format}`;
 };
 
-
 //https://www.codeschool.com/discuss/t/trying-to-call-flickr-api-with-angularjs-but-getting-syntaxerror-unexpected-token-when-using-nojsoncallback-1/24832
 function parseFlickrJSONP(str) {
   //TO-DO: make funcitonal
@@ -15,6 +14,11 @@ function parseFlickrJSONP(str) {
   str = str.replace(/\\'/g,"'");
   str = JSON.parse(str);
   return str;
+}
+
+function pluckItemIdFromLink(link) {
+  const itemId = link.split('/')[5];
+  return itemId;
 }
 
 const publicPhotoFeed = (req, res)=> {
@@ -27,8 +31,14 @@ const publicPhotoFeed = (req, res)=> {
   }, (err, resp, body)=> {
     respondOrDie(err, ()=> {
       body = parseFlickrJSONP(body);
+
+      const items = body.items;
+      items.map((item)=> {
+        item.id = pluckItemIdFromLink(item.link);
+      });
+
       res.send({
-        items: body.items
+        items
       });
     });
   });

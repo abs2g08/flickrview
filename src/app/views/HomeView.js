@@ -1,29 +1,29 @@
 import React from 'react';
-import { HomeStore } from '../stores';
+import { FeedStore } from '../stores';
 import { Feed } from '../components';
-import { HomeActions } from '../actions';
+import { FeedActions } from '../actions';
 import connectToStores from 'alt/utils/connectToStores';
 import classNames from 'classnames';
 
 class HomeView extends React.Component {
   static getStores() {
-    return [HomeStore];
+    return [FeedStore];
   }
 
   static getPropsFromStores() {
     return {
-      homeStore: HomeStore.getState()
+      feedStore: FeedStore.getState()
     };
   }
 
   componentDidMount() {
-    HomeActions.getFeed();
+    FeedActions.getFeed();
   }
 
   render() {
-    const loading = this.props.homeStore.loading || false;
+    const loading = this.props.feedStore.loading || false;
     const svgLoaderClass = classNames('svg-loader', { hidden: !loading });
-    const items = this.props.homeStore.items;
+    const items = this.props.feedStore.items;
 
     return (
       <div className='home-view'>

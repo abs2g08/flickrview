@@ -1,5 +1,5 @@
-import HomeActions from './HomeActions';
+import FeedActions from './FeedActions';
 
 export {
-  HomeActions
+  FeedActions
 };

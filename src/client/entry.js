@@ -12,6 +12,7 @@ import '../favicon.ico';
 // Comp styles
 import '../app/components/menu.scss';
 import '../app/components/feed.scss';
+import '../app/components/item-detail.scss';
 
 // Redundant includes to trigger live reload
 import '../app/styles/vendor.scss';

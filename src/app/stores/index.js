@@ -1,5 +1,5 @@
-import HomeStore from './HomeStore';
+import FeedStore from './FeedStore';
 
 export {
-  HomeStore
+  FeedStore
 };

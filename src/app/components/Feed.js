@@ -1,11 +1,11 @@
 import React from 'react';
 import FeedItem from './FeedItem';
-import { HomeActions } from '../actions';
+import { FeedActions } from '../actions';
 // import { genKey } from '../utils/commUtil';
 
 export default class Feed extends React.Component {
   onFeedRefresh() {
-    HomeActions.getFeed();
+    FeedActions.getFeed();
   }
 
   render() {

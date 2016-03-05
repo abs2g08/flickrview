@@ -1,6 +1,6 @@
 import React from 'react';
 import urls from '../const/urls';
-
+import { Link } from 'react-router';
 /*
 
   author: "nobody@flickr.com (Grant is a Grant)"
@@ -33,6 +33,10 @@ export default class ItemDetail extends React.Component {
 
     return (
       <div className='detail-view'>
+        <Link to='/home'>Back</Link>
+        <figure>
+          <img src={item.media.m}/>
+        </figure>
         <div className='published'>Published: {item.published}</div>
         <div className='title'>
           <h1>{item.title}</h1>

@@ -1,17 +1,17 @@
 import React from 'react';
-import { HomeStore } from '../stores';
-import { HomeActions } from '../actions';
+import { FeedStore } from '../stores';
+import { FeedActions } from '../actions';
 import { ItemDetail } from '../components';
 import connectToStores from 'alt/utils/connectToStores';
 
 class DetailView extends React.Component {
   static getStores() {
-    return [HomeStore];
+    return [FeedStore];
   }
 
   static getPropsFromStores() {
     return {
-      homeStore: HomeStore.getState()
+      feedStore: FeedStore.getState()
     };
   }
 
@@ -23,6 +23,7 @@ class DetailView extends React.Component {
       date_taken: null,
       description: null,
       published: null,
+      media: { m: null },
       link: null,
       tags: '',
       title: null
@@ -34,14 +35,14 @@ class DetailView extends React.Component {
   }
 
   componentDidMount() {
-    const items = this.props.homeStore.items;
+    const items = this.props.feedStore.items;
     let item = {};
 
     if(!items.length > 0) {
-      HomeActions.getFeed();
+      FeedActions.getFeed();
     } else {
       const params = this.props.params;
-      item = HomeStore.findItemByIds(params.authorId, params.itemId, items);
+      item = FeedStore.findItemByIds(params.authorId, params.itemId, items);
     }
 
     this.setState({

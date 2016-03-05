@@ -1,5 +1,5 @@
-import HomeSource from './HomeSource';
+import FeedSource from './FeedSource';
 
 export {
-  HomeSource
+  FeedSource
 };

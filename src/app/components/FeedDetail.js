@@ -24,7 +24,7 @@ export default class FeedDetail extends React.Component {
     item.published = moment(new Date(item.published)).format('DD MM');
     return (
       <article className='feed-item'>
-        <div class='title'>
+        <div className='title'>
           <h1>{item.title}</h1>
         </div>
         <div className='meta'>

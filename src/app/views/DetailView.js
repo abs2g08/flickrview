@@ -15,48 +15,29 @@ class DetailView extends React.Component {
     };
   }
 
-  constructor(props) {
-    super(props);
-
-    const item = {
-      author: null,
-      date_taken: null,
-      description: null,
-      published: null,
-      media: { m: null },
-      link: null,
-      tags: '',
-      title: null
-    };
-
-    this.state = {
-      item
-    };
-  }
-
   componentDidMount() {
-    const items = this.props.feedStore.items;
-    let item = {};
-
-    if(!items.length > 0) {
-      FeedActions.getFeed();
-    } else {
+    window.setTimeout(()=>{
       const params = this.props.params;
-      item = FeedStore.findItemByIds(params.authorId, params.itemId, items);
-    }
+      const authorId = params.authorId;
+      const itemId = params.itemId;
 
-    this.setState({
-      item
-    });
+      FeedActions.getFeed({
+        selectItem: {
+          authorId,
+          itemId
+        }
+      });
+    },0);
   }
 
   render() {
     //const loading = this.props.homeStore.loading || false;
-    let item = this.state.item;
+    const item = this.props.feedStore.item;
 
     return (
-      <div className='detail-view'>
-        <ItemDetail item={item}/>
+      <div className='detail-view' key={'detail-view'}>
+        {this.props.feedStore.test}
+        <ItemDetail item={item} key={'item-detail'}/>
       </div>
     );
   }

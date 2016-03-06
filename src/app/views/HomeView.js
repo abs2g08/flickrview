@@ -1,9 +1,9 @@
 import React from 'react';
 import { FeedStore } from '../stores';
-import { Feed } from '../components';
 import { FeedActions } from '../actions';
-import connectToStores from 'alt/utils/connectToStores';
+import { Feed } from '../components';
 import classNames from 'classnames';
+import connectToStores from 'alt/utils/connectToStores';
 
 class HomeView extends React.Component {
   static getStores() {
@@ -26,9 +26,9 @@ class HomeView extends React.Component {
     const items = this.props.feedStore.items;
 
     return (
-      <div className='home-view'>
+      <div className='home-view' key={'home-view'}>
         <div>
-          <Feed items={items}/>
+          <Feed items={items} key={'feed'}/>
         </div>
         <div className='home-loader'>
           <svg className={svgLoaderClass}></svg>

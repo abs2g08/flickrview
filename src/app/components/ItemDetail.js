@@ -1,6 +1,7 @@
 import React from 'react';
 import urls from '../const/urls';
 import { Link } from 'react-router';
+import { genKey } from '../utils/commUtil';
 /*
 
   author: "nobody@flickr.com (Grant is a Grant)"
@@ -18,8 +19,9 @@ import { Link } from 'react-router';
 export default class ItemDetail extends React.Component {
   formatTags(str) {
     return str.split(' ').map((tag)=> {
+      const key = genKey('tag', tag);
       return(
-        <a className='tag' href={urls.tagDetail(tag)}>
+        <a className='tag' href={urls.tagDetail(tag)} key={key}>
           {tag}
         </a>
       );
@@ -32,7 +34,7 @@ export default class ItemDetail extends React.Component {
     item.tags = this.formatTags(item.tags);
 
     return (
-      <div className='detail-view'>
+      <div className='detail-view' key={'detail-view'}>
         <Link to='/home'>Back</Link>
         <figure>
           <img src={item.media.m}/>

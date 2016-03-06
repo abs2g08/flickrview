@@ -3,6 +3,6 @@ export function getRandomInt(min, max) {
 }
 
 export function genKey(className, id=0) {
-  var rnd = getRandomInt(1,1000);
-  return `${className}_${id}_${rnd}`;
+  //var rnd = getRandomInt(1,1000);
+  return `${className}_${id}`;
 }

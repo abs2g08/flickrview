@@ -1,7 +1,7 @@
 import React from 'react';
 import routes from '../../app/routes';
 import { renderToString } from 'react-dom/server';
-import { match, RoutingContext } from 'react-router';
+import { match, RouterContext } from 'react-router';
 import createMemoryHistory from 'history/lib/createMemoryHistory';
 import config from '../../config';
 
@@ -24,7 +24,7 @@ const index = (req, res)=> {
     } else if (redirectLocation) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search);
     } else if (renderProps) {
-      const content = renderToString(<RoutingContext {...renderProps} />);
+      const content = renderToString(<RouterContext {...renderProps} />);
       res.render('index', {
         args: {
           network,

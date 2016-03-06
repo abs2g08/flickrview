@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Routes from '../app/Routes';
-import { Router } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 import alt from '../app/alt';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
+//import createBrowserHistory from 'history/lib/createBrowserHistory';
 import Iso from 'iso';
 
 // Favicon
@@ -19,7 +19,7 @@ import '../app/styles/vendor.scss';
 import '../app/styles/variables.scss';
 import '../app/styles/app.scss';
 
-const history = createBrowserHistory();
+//const browserHistory = createBrowserHistory();
 
 // boostrap flux stores
 Iso.bootstrap((state) => {
@@ -33,7 +33,7 @@ Iso.bootstrap((state) => {
 });
 
 render(
-  <Router history={history}>
+  <Router history={browserHistory}>
     {Routes}
   </Router>,
   document.getElementById('app')

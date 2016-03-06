@@ -1,8 +1,9 @@
 import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router';
+import { genKey } from '../utils/commUtil';
+import { browserHistory } from 'react-router';
 // import urls from '../const/urls';
-// import { genKey } from '../utils/commUtil';
 //import classNames from 'classnames';
 
 /*
@@ -10,28 +11,36 @@ import { Link } from 'react-router';
   author: "nobody@flickr.com (Grant is a Grant)"
   author_id: "29794819@N08"
   date_taken: "2016-02-27T13:25:39-08:00"
-  description: " <p><a href="https://www.flickr.com/people/thegrantyouknow/">Grant is a Grant</a> posted a photo:</p> <p><a href="https://www.flickr.com/photos/thegrantyouknow/25377070522/" title="Depth of Potato Field"><img src="https://farm2.staticflickr.com/1680/25377070522_34611ff45a_m.jpg" width="240" height="159" alt="Depth of Potato Field" /></a></p> "
+  description: " <p><a href="https://www.flickr.com/people/thegrantyouknow/">..
   link: "https://www.flickr.com/photos/thegrantyouknow/25377070522/"
   media: Object
   published: "2016-03-04T11:10:08Z"
-  tags: "ca canada macro campus nikon novascotia potato greenhouse micro nikkor sweetpotato nscc kentville 105mm novascotiacommunitycollege kingstec nikond90 kcpc vsco 105mm28g vscofilm kingscountyphotoclub"
+  tags: "ca canada macro campus nikon novascotia potato greenhouse..
   title: "Depth of Potato Field"
 
 */
 
 export default class FeedItem extends React.Component {
+  // test(e) {
+  //   //e.preventDefault();
+  //   browserHistory.push(e);
+  // }
   render() {
     let item = this.props.item || {};
-    item.published = moment(new Date(item.published)).format('DD[th] MMMM YYYY [at] HH:mm');
+    const key = genKey('feed-item', item.id);
+
+    const date = new Date(item.published);
+    item.published = moment(date).format('DD[th] MMMM YYYY [at] HH:mm');
+
     return (
-      <article className='feed-item'>
+      <article className='feed-item' key={key}>
         <figure>
           <Link to={`detail/${item.author_id}/${item.id}`}>
             <img src={item.media.m}/>
           </Link>
         </figure>
         <div className='meta'>
-          <div class='title'>
+          <div className='title'>
             <h3>{item.title}</h3>
           </div>
           <div className='meta'>

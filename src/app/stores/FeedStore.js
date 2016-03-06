@@ -4,10 +4,13 @@ import { FeedSource } from '../sources';
 import { findItemByIds } from '../utils/storeUtil';
 import { loading } from '../utils/loadingUtil';
 import { redirect403 } from '../utils/httpUtil';
+import Immutable from 'seamless-immutable';
+import { seamlessImmutable } from '../utils/altUtil';
 
+@seamlessImmutable
 class FeedStore {
   constructor() {
-    this.state = {
+    this.state = Immutable({
       items: [],
       item: {
         author: null,
@@ -19,12 +22,16 @@ class FeedStore {
         tags: '',
         title: null
       },
-      loading: false,
+      loading: true,
       errorMsg: ''
-    };
+    });
 
     this.registerAsync(FeedSource);
     this.bindActions(FeedActions);
+  }
+
+  mergeState(obj) {
+    this.setState(this.state.merge(obj));
   }
 
   lazyLoadItem(opts) {
@@ -33,7 +40,7 @@ class FeedStore {
 
     const item = findItemByIds(authorId, itemId, this.state.items);
     if(item) {
-      this.setState({ item });
+      this.mergeState({ item });
       return true;
     } else {
       return false;
@@ -58,7 +65,7 @@ class FeedStore {
     const data = resp.data;
     const opts = this.opts;
 
-    this.setState({
+    this.mergeState({
       items: data.items
     });
 
@@ -71,7 +78,7 @@ class FeedStore {
   }
 
   onGetFeedError(resp) {
-    this.setState({
+    this.mergeState({
       errorMsg: resp.data
     });
 

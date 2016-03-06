@@ -32,7 +32,7 @@ class DetailView extends React.Component {
 
   render() {
     //const loading = this.props.homeStore.loading || false;
-    const item = this.props.feedStore.item;
+    const item = this.props.feedStore.item.asMutable({ deep:true });
 
     return (
       <div className='detail-view' key={'detail-view'}>

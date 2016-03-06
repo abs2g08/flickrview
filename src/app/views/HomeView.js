@@ -23,7 +23,7 @@ class HomeView extends React.Component {
   render() {
     const loading = this.props.feedStore.loading || false;
     const svgLoaderClass = classNames('svg-loader', { hidden: !loading });
-    const items = this.props.feedStore.items;
+    const items = this.props.feedStore.items.asMutable({ deep: true });
 
     return (
       <div className='home-view' key={'home-view'}>

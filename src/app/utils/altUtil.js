@@ -6,3 +6,26 @@ export function generateAjaxActions(context, names) {
   });
   context.generateActions.apply(context, actionList);
 }
+
+export function seamlessImmutable(StoreModel) {
+  StoreModel.config = {
+    setState(currentState, nextState) {
+      this.state = nextState;
+      return this.state;
+    },
+
+    getState(currentState) {
+      return currentState;
+    },
+
+    onSerialize(state) {
+      return state.asMutable();
+    },
+
+    onDeserialize(data) {
+      return Immutable(data);
+    }
+  };
+
+  return StoreModel;
+};

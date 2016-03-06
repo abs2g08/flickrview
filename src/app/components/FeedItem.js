@@ -2,9 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router';
 import { genKey } from '../utils/commUtil';
-import { browserHistory } from 'react-router';
-// import urls from '../const/urls';
-//import classNames from 'classnames';
 
 /*
 
@@ -21,10 +18,6 @@ import { browserHistory } from 'react-router';
 */
 
 export default class FeedItem extends React.Component {
-  // test(e) {
-  //   //e.preventDefault();
-  //   browserHistory.push(e);
-  // }
   render() {
     let item = this.props.item || {};
     const key = genKey('feed-item', item.id);

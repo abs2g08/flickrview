@@ -2,6 +2,7 @@ import React from 'react';
 import urls from '../const/urls';
 import { Link } from 'react-router';
 import { genKey } from '../utils/commUtil';
+import moment from 'moment';
 /*
 
   author: "nobody@flickr.com (Grant is a Grant)"
@@ -17,6 +18,7 @@ import { genKey } from '../utils/commUtil';
 */
 
 export default class ItemDetail extends React.Component {
+
   //TO-DO: check if functional
   formatTags(str) {
     return str.split(' ').map((tag)=> {
@@ -44,23 +46,31 @@ export default class ItemDetail extends React.Component {
 
   render() {
     let item = this.props.item;
+    const date = new Date(item.published);
+
     item.tags = this.formatTags(item.tags);
     item.description = this.formatDesc(item.description);
+    item.published = moment(date).format('DD[th] MMMM YYYY [at] HH:mm');
 
     return (
       <div className='detail-view dropIn' key={'detail-view'}>
-        <Link to='/home'>Back</Link>
-        <figure>
-          <img src={item.media.m}/>
-        </figure>
-        <div className='published'>Published: {item.published}</div>
-        <div className='title'>
-          <h1>{item.title}</h1>
+        <div className='subnav'>
+          <div className='title'>
+            <h1>{item.title}</h1>
+          </div>
+          <Link to='/home'>Back</Link>
         </div>
-        <div className='description'>
-          <div dangerouslySetInnerHTML={{__html: item.description}} />
+        <div className='info'>
+          <figure>
+            <img src={item.media.m}/>
+          </figure>
+          <div className='author'>{item.author}</div>
+          <div className='published'>Published: {item.published}</div>
+          <div className='description'>
+            <span dangerouslySetInnerHTML={{__html: item.description}}/>
+          </div>
+          <div className='tags'>Tags: {item.tags}</div>
         </div>
-        <div className='tags'>Tags: {item.tags}</div>
       </div>
     );
   }

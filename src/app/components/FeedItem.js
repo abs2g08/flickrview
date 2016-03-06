@@ -29,7 +29,7 @@ export default class FeedItem extends React.Component {
       <article className='feed-item fadeIn' key={key}>
         <figure>
           <Link to={`detail/${item.author_id}/${item.id}`}>
-            <img src={item.media.m}/>
+            <img src={item.media.m} alt={item.title}/>
           </Link>
         </figure>
         <div className='meta'>

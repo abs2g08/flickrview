@@ -17,6 +17,7 @@ import { genKey } from '../utils/commUtil';
 */
 
 export default class ItemDetail extends React.Component {
+  //TO-DO: check if functional
   formatTags(str) {
     return str.split(' ').map((tag)=> {
       const key = genKey('tag', tag);
@@ -28,12 +29,26 @@ export default class ItemDetail extends React.Component {
     });
   }
 
+  //TO-DO: check if functional
+  formatDesc(text) {
+    let description = '';
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = text;
+    const tmpDom = wrapper.children[2];
+
+    if(tmpDom) {
+      description = tmpDom.innerHTML;
+    }
+    return description;
+  }
+
   render() {
     let item = this.props.item;
     item.tags = this.formatTags(item.tags);
+    item.description = this.formatDesc(item.description);
 
     return (
-      <div className='detail-view' key={'detail-view'}>
+      <div className='detail-view dropIn' key={'detail-view'}>
         <Link to='/home'>Back</Link>
         <figure>
           <img src={item.media.m}/>
@@ -42,7 +57,9 @@ export default class ItemDetail extends React.Component {
         <div className='title'>
           <h1>{item.title}</h1>
         </div>
-        <div className='description'>{item.description}</div>
+        <div className='description'>
+          <div dangerouslySetInnerHTML={{__html: item.description}} />
+        </div>
         <div className='tags'>Tags: {item.tags}</div>
       </div>
     );

@@ -67,6 +67,7 @@
     "express": "4.13.3",
     "express-session": "1.12.1",
     "history": "1.12.0",
+    "html-to-react": "^0.1.2",
     "instagram-node": "0.5.8",
     "iso": "5.0.0",
     "jade": "1.11.0",

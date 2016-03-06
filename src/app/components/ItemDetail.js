@@ -21,7 +21,7 @@ export default class ItemDetail extends React.Component {
     return str.split(' ').map((tag)=> {
       const key = genKey('tag', tag);
       return(
-        <a className='tag' href={urls.tagDetail(tag)} key={key}>
+        <a className='tag-link' href={urls.tagDetail(tag)} key={key}>
           {tag}
         </a>
       );
@@ -29,7 +29,6 @@ export default class ItemDetail extends React.Component {
   }
 
   render() {
-    //const loading = this.props.homeStore.loading || false;
     let item = this.props.item;
     item.tags = this.formatTags(item.tags);
 

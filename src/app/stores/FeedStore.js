@@ -7,21 +7,23 @@ import { redirect403 } from '../utils/httpUtil';
 import Immutable from 'seamless-immutable';
 import { seamlessImmutable } from '../utils/altUtil';
 
+const blankItem = {
+  author: null,
+  date_taken: null,
+  description: null,
+  published: null,
+  media: { m: null },
+  link: null,
+  tags: '',
+  title: null
+};
+
 @seamlessImmutable
 class FeedStore {
   constructor() {
     this.state = Immutable({
       items: [],
-      item: {
-        author: null,
-        date_taken: null,
-        description: null,
-        published: null,
-        media: { m: null },
-        link: null,
-        tags: '',
-        title: null
-      },
+      item: blankItem,
       loading: true,
       errorMsg: ''
     });
@@ -41,10 +43,18 @@ class FeedStore {
     const item = findItemByIds(authorId, itemId, this.state.items);
     if(item) {
       this.mergeState({ item });
+      loading(this, false);
+      
       return true;
     } else {
       return false;
     }
+  }
+
+  onClearSelectedItem() {
+    this.mergeState({
+      item: blankItem
+    });
   }
 
   onGetFeed(opts) {

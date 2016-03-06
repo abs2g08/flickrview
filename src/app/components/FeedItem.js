@@ -26,7 +26,7 @@ export default class FeedItem extends React.Component {
     item.published = moment(date).format('DD[th] MMMM YYYY [at] HH:mm');
 
     return (
-      <article className='feed-item' key={key}>
+      <article className='feed-item fadeIn' key={key}>
         <figure>
           <Link to={`detail/${item.author_id}/${item.id}`}>
             <img src={item.media.m}/>

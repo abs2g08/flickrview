@@ -4,6 +4,7 @@ import { generateAjaxActions } from '../utils/altUtil';
 class FeedActions {
   constructor() {
     generateAjaxActions(this, ['getFeed']);
+    this.generateActions('clearSelectedItem');
   }
 }
 

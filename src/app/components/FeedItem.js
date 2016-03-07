@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router';
 import { genKey } from '../utils/commUtil';
+import { CoverImage } from '../components';
 
 /*
 
@@ -26,13 +27,13 @@ export default class FeedItem extends React.Component {
     item.published = moment(date).format('DD[th] MMMM YYYY [at] HH:mm');
 
     return (
-      <article className='feed-item fadeIn' key={key}>
-        <figure>
+      <article className='feed-item fadeIn row' key={key}>
+        <figure className='photo small-4 columns'>
           <Link to={`detail/${item.author_id}/${item.id}`}>
-            <img src={item.media.m} alt={item.title}/>
+            <CoverImage src={item.media.m}/>
           </Link>
         </figure>
-        <div className='meta'>
+        <div className='meta small-8 columns'>
           <div className='title'>
             <h3>{item.title}</h3>
           </div>

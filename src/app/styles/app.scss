@@ -30,16 +30,10 @@ p {
 }
 
 figure {
-  display: inline-block;
   -webkit-margin-before: 0px;
   -webkit-margin-after: 0px;
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
-}
-
-.single-row {
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem;  
 }
 
 @include setFontSize($s-font-size);

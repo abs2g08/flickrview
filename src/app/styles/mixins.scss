@@ -22,6 +22,11 @@
   }
 }
 
+.static-row {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}
+
 @mixin animation ($delay, $duration, $animation) {
   -webkit-animation-delay: $delay;
   -webkit-animation-duration: $duration;

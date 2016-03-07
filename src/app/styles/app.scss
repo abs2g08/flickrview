@@ -23,7 +23,7 @@ p {
   margin: 50px auto;
   border-radius: 20px;
 
-  background-color: darken($background, 5);
+  background-color: darken($main-background, 5);
   background-image: url('../images/loader.svg');
   background-position: center;
   background-repeat: no-repeat;
@@ -37,6 +37,11 @@ figure {
   -webkit-margin-end: 0px;
 }
 
+.single-row {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;  
+}
+
 @include setFontSize($s-font-size);
 
 @include breakpoint($s-breakpoint) {
@@ -45,7 +50,7 @@ figure {
   }
 
   .container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
   }

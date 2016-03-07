@@ -34,12 +34,14 @@ export default class ItemDetail extends React.Component {
   //TO-DO: check if functional
   formatDesc(text) {
     let description = '';
-    const wrapper = document.createElement('div');
-    wrapper.innerHTML = text;
-    const tmpDom = wrapper.children[2];
+    if(typeof(document) !== 'undefined') {
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = text;
+      const tmpDom = wrapper.children[2];
 
-    if(tmpDom) {
-      description = tmpDom.innerHTML;
+      if(tmpDom) {
+        description = tmpDom.innerHTML;
+      }
     }
     return description;
   }
@@ -51,26 +53,33 @@ export default class ItemDetail extends React.Component {
     item.tags = this.formatTags(item.tags);
     item.description = this.formatDesc(item.description);
     item.published = moment(date).format('DD[th] MMMM YYYY [at] HH:mm');
+    item.authLink = urls.authorProfile(item.author_id);
 
     return (
-      <div className='detail-view dropIn' key={'detail-view'}>
-        <div className='subnav'>
+      <div className='item-detail dropIn' key={'detail-view'}>
+        <div className='subnav-top single-row'>
           <div className='title'>
-            <h1>{item.title}</h1>
+            <h3>{item.title}</h3>
           </div>
-          <Link to='/home'>Back</Link>
+          <div className='back'>
+            <Link to='/home'>Back</Link>
+          </div>
         </div>
-        <div className='info'>
-          <figure>
+        <div className='subnav-bottom single-row'>
+          <div className='author'>
+            <a href={item.authLink}>{item.author}</a>
+          </div>
+          <div className='published'> | Published: {item.published}</div>
+        </div>
+        <div className='info row'>
+          <figure className='photo small-4 columns'>
             <img src={item.media.m}/>
           </figure>
-          <div className='author'>{item.author}</div>
-          <div className='published'>Published: {item.published}</div>
-          <div className='description'>
+          <div className='description small-8 columns'>
             <span dangerouslySetInnerHTML={{__html: item.description}}/>
           </div>
-          <div className='tags'>Tags: {item.tags}</div>
         </div>
+        <div className='tags single-row'>Tags: {item.tags}</div>
       </div>
     );
   }

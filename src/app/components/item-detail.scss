@@ -1,8 +1,61 @@
 .item-detail {
-  .subnav {
 
+  .subnav-bottom {
+    margin-top: 10px;
+    margin-bottom: 15px;
   }
+
+  .title {
+    display: inline-block;
+  }
+
+  .back {
+    margin-top: 5px;
+    float: right;
+    display: inline-block;
+  }
+
+  .author {
+    margin-right: 5px;
+    display: inline-block;
+  }
+
+  .published {
+    display: inline-block;
+  }
+
   .info {
-    
+    img {
+      width: 100%;
+    }
+
+    .small-4 {
+      width: 100%;
+    }
+
+    .small-8 {
+      width: 100%;
+    }
+
+    @media only screen and (min-width: 40.063em) {
+      .photo.small-4 {
+        width: 33.33%;
+      }
+
+      .description.small-8 {
+        width: 66.66%;
+      }
+    }
+  }
+
+  .tags {
+    margin-top: 25px;
+    .tag-link {
+      display: inline-block;
+      margin: 0 5px 5px 0;
+      background-color: #cfd6d9;
+      border-radius: 5px;
+      padding: 3px 5px;
+    }
   }
 }

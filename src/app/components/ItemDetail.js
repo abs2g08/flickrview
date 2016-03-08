@@ -56,7 +56,7 @@ export default class ItemDetail extends React.Component {
 
     return (
       <div className='item-detail dropIn' key={'detail-view'}>
-        <div className='subnav-top static-row'>
+        <div className='subnav-top'>
           <div className='title'>
             <h3>{item.title}</h3>
           </div>
@@ -64,21 +64,23 @@ export default class ItemDetail extends React.Component {
             <Link to='/home'>Back</Link>
           </div>
         </div>
-        <div className='subnav-bottom static-row'>
+        <div className='subnav-bottom'>
           <div className='author'>
             <a href={item.author.flink}>{item.author.name}</a>
           </div>
           <div className='published'> | Published: {item.published}</div>
         </div>
-        <div className='info row'>
-          <figure className='photo small-4 columns'>
+        <seciton className='info'>
+          <figure className='photo'>
             <img src={item.media.m}/>
           </figure>
-          <div className='description small-8 columns'>
-            <span dangerouslySetInnerHTML={{__html: item.description}}/>
+          <div className='meta'>
+            <div className='description'>
+              <span dangerouslySetInnerHTML={{__html: item.description}}/>
+            </div>
+            <div className='tags'>Tags: {item.tags}</div>
           </div>
-        </div>
-        <div className='tags static-row'>Tags: {item.tags}</div>
+        </seciton>
       </div>
     );
   }

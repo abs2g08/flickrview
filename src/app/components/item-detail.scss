@@ -25,31 +25,23 @@
   }
 
   .info {
-    img {
-      width: 100%;
-    }
+    white-space : nowrap;
+  }
 
-    .small-4 {
-      width: 100%;
-    }
+  .photo {
+    vertical-align: top;
+    display: inline-block;
+  }
 
-    .small-8 {
-      width: 100%;
-    }
-
-    @media only screen and (min-width: 40.063em) {
-      .photo.small-4 {
-        width: 33.33%;
-      }
-
-      .description.small-8 {
-        width: 66.66%;
-      }
-    }
+  .meta {
+    padding: 20px;
+    display: inline-block;
+    white-space : nowrap;
   }
 
   .tags {
     margin-top: 25px;
+    display: block;
     .tag-link {
       display: inline-block;
       margin: 0 5px 5px 0;

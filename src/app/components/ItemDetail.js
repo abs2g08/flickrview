@@ -3,18 +3,17 @@ import urls from '../const/urls';
 import { Link } from 'react-router';
 import { genKey } from '../utils/commUtil';
 import moment from 'moment';
-/*
 
-  author: "nobody@flickr.com (Grant is a Grant)"
+/*
+  author: { email: "nobody@flickr.com", name: "Grant is a Grant" }
   author_id: "29794819@N08"
   date_taken: "2016-02-27T13:25:39-08:00"
-  description: " <p><a href="https://www.flickr.com/people/thegrantyouknow/">Grant is a Grant</a> posted a photo:</p> <p><a href="https://www.flickr.com/photos/thegrantyouknow/25377070522/" title="Depth of Potato Field"><img src="https://farm2.staticflickr.com/1680/25377070522_34611ff45a_m.jpg" width="240" height="159" alt="Depth of Potato Field" /></a></p> "
+  description: " <p><a href="https://www.flickr.com/people/thegrantyouknow/">..
   link: "https://www.flickr.com/photos/thegrantyouknow/25377070522/"
   media: Object
   published: "2016-03-04T11:10:08Z"
-  tags: "ca canada macro campus nikon novascotia potato greenhouse micro nikkor sweetpotato nscc kentville 105mm novascotiacommunitycollege kingstec nikond90 kcpc vsco 105mm28g vscofilm kingscountyphotoclub"
+  tags: "ca canada macro campus nikon novascotia potato greenhouse..
   title: "Depth of Potato Field"
-
 */
 
 export default class ItemDetail extends React.Component {
@@ -24,7 +23,7 @@ export default class ItemDetail extends React.Component {
     return str.split(' ').map((tag)=> {
       const key = genKey('tag', tag);
       return(
-        <a className='tag-link' href={urls.tagDetail(tag)} key={key}>
+        <a className='tag-link' href={urls.flickr.tagDetail(tag)} key={key}>
           {tag}
         </a>
       );
@@ -53,7 +52,7 @@ export default class ItemDetail extends React.Component {
     item.tags = this.formatTags(item.tags);
     item.description = this.formatDesc(item.description);
     item.published = moment(date).format('DD[th] MMMM YYYY [at] HH:mm');
-    item.authLink = urls.authorProfile(item.author_id);
+    item.author.flink = urls.flickr.authorProfile(item.author_id);
 
     return (
       <div className='item-detail dropIn' key={'detail-view'}>
@@ -67,7 +66,7 @@ export default class ItemDetail extends React.Component {
         </div>
         <div className='subnav-bottom static-row'>
           <div className='author'>
-            <a href={item.authLink}>{item.author}</a>
+            <a href={item.author.flink}>{item.author.name}</a>
           </div>
           <div className='published'> | Published: {item.published}</div>
         </div>

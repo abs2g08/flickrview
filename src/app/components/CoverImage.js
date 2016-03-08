@@ -7,7 +7,7 @@ export default class CoverImage extends React.Component {
     const imageStyle = {
       background: `url(\'${src}\') no-repeat center center`,
       backgroundSize: 'cover',
-      height: '200px'
+      height: '150px'
     };
 
     return (

@@ -2,7 +2,6 @@
 @import "variables.scss";
 
 .feed {
-
   .feed-content {
     padding-bottom: 20px;
   }
@@ -13,24 +12,59 @@
     margin-bottom: 10px;
     border-radius: 3px;
   }
-  .meta {
 
+  .info {
+    margin: 10px 0;
   }
 
-  .small-4 {
+  .title {
+    h1 {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .author, .published, .view-flicker{
+    margin-right: 5px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .author {
+    width: 120px;
+  }
+
+  .published {
+    width: 220px;
+  }
+
+  .view-flicker {
+    width: 100px;
+  }
+
+  .photo {
+  }
+
+  .photo.small-3 {
     width: 100%;
   }
 
-  .small-8 {
+  .info.small-9 {
     width: 100%;
   }
 
   @media only screen and (min-width: 40.063em) {
-    .photo.small-4 {
+    .photo.small-3 {
+      padding-left: 0px;
+      padding-right: 0px;
       width: 33.33333%;
     }
 
-    .meta.small-8 {
+    .info.small-9 {
       width: 66.66667%;
     }
   }

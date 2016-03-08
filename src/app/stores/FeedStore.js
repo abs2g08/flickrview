@@ -1,14 +1,17 @@
 import alt from '../alt';
 import { FeedActions } from '../actions';
 import { FeedSource } from '../sources';
-import { findItemByIds } from '../utils/storeUtil';
+import { findItemByIds, parseAuthorIdAndEmail } from '../utils/storeUtil';
 import { loading } from '../utils/loadingUtil';
 import { redirect403 } from '../utils/httpUtil';
 import Immutable from 'seamless-immutable';
 import { seamlessImmutable } from '../utils/altUtil';
 
 const blankItem = {
-  author: null,
+  author: {
+    email: '',
+    name: ''
+  },
   date_taken: null,
   description: null,
   published: null,
@@ -40,15 +43,22 @@ class FeedStore {
     const authorId = opts.authorId;
     const itemId = opts.itemId;
 
-    const item = findItemByIds(authorId, itemId, this.state.items);
+    let item = findItemByIds(authorId, itemId, this.state.items);
     if(item) {
       this.mergeState({ item });
       loading(this, false);
-      
+
       return true;
     } else {
       return false;
     }
+  }
+
+  formatData(data) {
+    return data.map((item)=>{
+      item.author = parseAuthorIdAndEmail(item.author);
+      return item;
+    });
   }
 
   onClearSelectedItem() {
@@ -72,8 +82,10 @@ class FeedStore {
   }
 
   onGetFeedSuccess(resp) {
-    const data = resp.data;
+    let data = resp.data;
     const opts = this.opts;
+
+    data.items = this.formatData(data.items);
 
     this.mergeState({
       items: data.items

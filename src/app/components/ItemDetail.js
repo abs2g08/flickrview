@@ -3,6 +3,7 @@ import urls from '../const/urls';
 import { Link } from 'react-router';
 import { genKey } from '../utils/commUtil';
 import moment from 'moment';
+import classNames from 'classnames';
 
 /*
   author: { email: "nobody@flickr.com", name: "Grant is a Grant" }
@@ -17,7 +18,6 @@ import moment from 'moment';
 */
 
 export default class ItemDetail extends React.Component {
-
   //TO-DO: check if functional
   formatTags(str) {
     return str.split(' ').map((tag)=> {
@@ -48,6 +48,11 @@ export default class ItemDetail extends React.Component {
   render() {
     let item = this.props.item;
     const date = new Date(item.published);
+    const itemDetailClass = classNames(
+      'item-detail', {
+        hidden: item.id === null
+      }
+    );
 
     item.tags = this.formatTags(item.tags);
     item.description = this.formatDesc(item.description);
@@ -55,13 +60,15 @@ export default class ItemDetail extends React.Component {
     item.author.flink = urls.flickr.authorProfile(item.author_id);
 
     return (
-      <div className='item-detail dropIn' key={'detail-view'}>
+      <div className={itemDetailClass} key={'detail-view'}>
         <div className='subnav-top'>
           <div className='title'>
-            <h3>{item.title}</h3>
+            <h1>{item.title}</h1>
           </div>
           <div className='back'>
-            <Link to='/home'>Back</Link>
+            <Link to='/home'>
+              <button className='btn btn-back'>Back</button>
+            </Link>
           </div>
         </div>
         <div className='subnav-bottom'>

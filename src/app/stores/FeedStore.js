@@ -8,6 +8,7 @@ import Immutable from 'seamless-immutable';
 import { seamlessImmutable } from '../utils/altUtil';
 
 const blankItem = {
+  id: null,
   author: {
     email: '',
     name: ''

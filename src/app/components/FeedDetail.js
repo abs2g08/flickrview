@@ -1,8 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-// import urls from '../const/urls';
-// import { genKey } from '../utils/commUtil';
-//import classNames from 'classnames';
 
 /*
   author: { email: "nobody@flickr.com", name: "Grant is a Grant" }

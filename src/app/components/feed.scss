@@ -13,17 +13,21 @@
     border-radius: 3px;
   }
 
+  .photo {
+    position: absolute;
+  }
+
   .info {
-    margin: 10px 0;
+    float: left;
+    padding-left: 220px;
+    width: 100%;
+    min-height: 120px;
   }
 
   .title {
-    h1 {
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .author, .published, .view-flicker{
@@ -42,30 +46,24 @@
     width: 220px;
   }
 
+  .published.small {
+    display: block;
+  }
+
+  .published.big {
+    display: none;
+  }
+
   .view-flicker {
     width: 100px;
   }
 
-  .photo {
-  }
-
-  .photo.small-3 {
-    width: 100%;
-  }
-
-  .info.small-9 {
-    width: 100%;
-  }
-
-  @media only screen and (min-width: 40.063em) {
-    .photo.small-3 {
-      padding-left: 0px;
-      padding-right: 0px;
-      width: 33.33333%;
+  @media only screen and (min-width: 800px) {
+    .published.small {
+      display: none;
     }
-
-    .info.small-9 {
-      width: 66.66667%;
+    .published.big {
+      display: inline-block;
     }
   }
 }

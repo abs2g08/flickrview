@@ -29,21 +29,22 @@ export default class FeedItem extends React.Component {
     item.flink = urls.flickr.itemDetail(item.author_id, item.id);
 
     return (
-      <article className='feed-item fadeIn row' key={key}>
-        <figure className='photo small-3 columns'>
+      <article className='feed-item fadeIn clearfix' key={key}>
+        <figure className='photo'>
           <Link to={item.detailLink}>
             <CoverImage src={item.media.m}/>
           </Link>
         </figure>
-        <div className='info small-9 columns'>
-          <div className='title'>
-            <h1>{item.title}</h1>
-          </div>
+        <div className='info'>
+          <h1 className='title'>{item.title}</h1>
           <div className='meta'>
+            <span className='published small'>
+              {item.published}
+            </span>
             <span className='author'>
               <a href={item.author.flink}>{item.author.name}</a>
             </span>
-            <span className='published'>
+            <span className='published big'>
               {item.published}
             </span>
             <span className='view-flicker'>

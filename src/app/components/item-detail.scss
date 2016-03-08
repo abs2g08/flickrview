@@ -25,18 +25,18 @@
   }
 
   .info {
-    white-space : nowrap;
+    position: relative;
   }
 
   .photo {
-    vertical-align: top;
-    display: inline-block;
+    position: absolute;
   }
 
   .meta {
     padding: 20px;
     display: inline-block;
-    white-space : nowrap;
+    margin-left: 250px;
+    //white-space : nowrap;
   }
 
   .tags {

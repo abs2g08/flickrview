@@ -36,27 +36,25 @@ figure {
   -webkit-margin-end: 0px;
 }
 
+.container {
+  padding: 0 10px;
+}
+
 .clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
 .clearfix { display: inline-block; }
 /* start commented backslash hack \*/
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
 /* close commented backslash hack */
 
-@media only screen and (min-width: 40.063em) {
-  h1 {
-    font-size: 2.85rem;
-  }
-}
-
-@include setFontSize($s-font-size);
+@include setFontSize($m-font-size);
 
 @include breakpoint($s-breakpoint) {
   p {
@@ -66,6 +64,4 @@ figure {
   .container {
     padding: 0 20px;
   }
-
-  @include setFontSize($m-font-size);
 }

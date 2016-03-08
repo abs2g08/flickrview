@@ -22,11 +22,11 @@
     float: left;
     padding-left: 220px;
     width: 100%;
-    min-height: 120px;
+    min-height: 100px;
   }
 
   .title {
-    margin: 5px 0px 12px 0px;
+    margin: 0.15em 0px 0 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -60,7 +60,25 @@
     width: 100px;
   }
 
+  .img-cover {
+    height: 100px;
+    width: 200px;
+  }
+
+  @media only screen and (min-width: 40.063em) {
+    .info {
+      min-height: 120px;
+    }
+    .img-cover {
+      height: 120px;
+    }
+  }
+
   @media only screen and (min-width: 800px) {
+    .title {
+      margin: 0.1em 0px 0.3em 0;
+    }
+
     .published.small {
       display: none;
     }

@@ -48,11 +48,16 @@ figure {
   clear: both;
   height: 0;
 }
-.clearfix { display: inline-block; }
-/* start commented backslash hack \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
-/* close commented backslash hack */
+
+.clearfix {
+  display: inline-block;
+}
+* html .clearfix {
+  height: 1%;
+}
+.clearfix {
+  display: block;
+}
 
 .hidden {
   display: none !important;

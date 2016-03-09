@@ -18,7 +18,6 @@ import classNames from 'classnames';
 */
 
 export default class ItemDetail extends React.Component {
-  //TO-DO: check if functional
   formatTags(str) {
     return str.split(' ').map((tag)=> {
       const key = genKey('tag', tag);
@@ -30,7 +29,6 @@ export default class ItemDetail extends React.Component {
     });
   }
 
-  //TO-DO: check if functional
   formatDesc(text) {
     let description = '';
     if(typeof(document) !== 'undefined') {
@@ -59,6 +57,8 @@ export default class ItemDetail extends React.Component {
     item.published = moment(date).format('DD[th] MMMM YYYY [at] HH:mm');
     item.author.flink = urls.flickr.authorProfile(item.author_id);
     item.flink = urls.flickr.itemDetail(item.author_id, item.id);
+
+    /* dangerouslySetInnerHTML (trust DOM from flickr) */
 
     return (
       <div className={itemDetailClass} key={'detail-view'}>

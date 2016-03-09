@@ -2,10 +2,9 @@
 @import "~breakpoint-sass/stylesheets/breakpoint";
 
 .item-detail {
-
   .subnav-bottom {
-    margin-top: 10px;
-    margin-bottom: 25px;
+    margin-top: 0.2em;
+    margin-bottom: 2.4em;
   }
 
   .title {
@@ -13,7 +12,7 @@
   }
 
   .back {
-    margin-top: 5px;
+    margin-top: 0.55em;
     float: right;
     display: inline-block;
   }
@@ -22,12 +21,12 @@
     transition: none;
 
     &:hover, &:focus {
-      background: #008CBA;      
+      background: #008CBA;
     }
 
     &::before{
       background: #008CBA;
-      transition: background-color 300ms ease-out;
+      transition: none;
       border: none;
       content: '';
       display: block;
@@ -44,7 +43,7 @@
   }
 
   .author {
-    margin-right: 5px;
+    margin-right: 0.35em;
     display: inline-block;
   }
 
@@ -54,17 +53,18 @@
 
   .meta {
     display: inline-block;
+    margin-top: 2.5em;
   }
 
   .tags {
-    margin-top: 25px;
+    margin-top: 2em;
     display: block;
     .tag-link {
       display: inline-block;
-      margin: 0 5px 5px 0;
+      margin: 0 0.5em 0.5em 0;
       background-color: #cfd6d9;
-      border-radius: 5px;
-      padding: 3px 5px;
+      border-radius: 0.4em;
+      padding: 0.2em 0.2em;
     }
   }
 
@@ -78,8 +78,9 @@
     }
 
     .meta {
-      padding: 0px 20px 20px 20px;
+      padding: 0px 0.9em 0.9em 0.9em;
       margin-left: 250px;
+      margin-top: 0em;
     }
   }
 }

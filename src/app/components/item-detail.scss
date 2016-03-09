@@ -19,17 +19,21 @@
   .back {
     position: absolute;
     right: 0px;
-    top: 0.35em;
+    top: 0.2em;
   }
 
   .btn-back {
     transition: none;
 
+    padding-left: 1em;
+    padding-right: 1em;
+    z-index: 1;
+    
     &:hover, &:focus {
       background: $btn-color;
     }
 
-    &::before{
+    &::before {
       background: $btn-color;
       transition: none;
       border: none;
@@ -44,6 +48,7 @@
       -o-transform: rotate(45deg);
       transform: rotate(45deg);
       width: 34px;
+      z-index: -1;
     }
   }
 
@@ -67,7 +72,7 @@
     .tag-link {
       display: inline-block;
       margin: 0 0.5em 0.5em 0;
-      background-color: #cfd6d9;
+      background-color: $gray;
       border-radius: 0.4em;
       padding: 0.2em 0.2em;
     }
@@ -86,6 +91,11 @@
       padding: 0px 0.9em 0.9em 0.9em;
       margin-left: 250px;
       margin-top: 0em;
+    }
+
+    .btn-back {
+      padding-left: 1em;
+      padding-right: 1em;
     }
   }
 }

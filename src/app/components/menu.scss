@@ -2,7 +2,6 @@
 @import "~compass-mixins/lib/_compass.scss";
 @import "variables.scss";
 
-/* HEADER */
 .header {
   height: 66px;
 
@@ -26,7 +25,6 @@
   background-color: $main-background;
 }
 
-/* MENU */
 .menu {
   float: left;
   a {
@@ -44,7 +42,6 @@
 
 $bp: 0px 768px;
 
-/* RESPONSIVE */
 @include breakpoint($bp) {
   .pusher {
     @include transition-duration(0.3s);

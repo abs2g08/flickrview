@@ -9,7 +9,7 @@
 
   .feed-item {
     position: relative;
-    min-width: 32em;
+    min-width: 32.8em;
     background-color: $white;
     border: 1px solid $gray-ltr;
     margin-bottom: 0.3em;
@@ -36,7 +36,7 @@
   }
 
   .author, .published, .view-flicker {
-    margin-right: 5px;
+    margin-right: 20px;
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
@@ -44,11 +44,11 @@
   }
 
   .author {
-    min-width: 120px;
+    width: 6.73em;
   }
 
   .published {
-    width: 18.5em;
+    width: 16.5em;
   }
 
   .published.small {

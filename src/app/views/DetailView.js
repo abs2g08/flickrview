@@ -3,6 +3,7 @@ import { FeedStore } from '../stores';
 import { FeedActions } from '../actions';
 import { ItemDetail } from '../components';
 import classNames from 'classnames';
+import { isoMorphicFix } from '../utils/commUtil';
 import connectToStores from 'alt/utils/connectToStores';
 
 class DetailView extends React.Component {
@@ -17,18 +18,19 @@ class DetailView extends React.Component {
   }
 
   componentDidMount() {
-    window.setTimeout(()=>{
+    isoMorphicFix(()=>{
       const params = this.props.params;
       const authorId = params.authorId;
       const itemId = params.itemId;
 
       FeedActions.getFeed({
+        tag: 'potato',
         selectItem: {
           authorId,
           itemId
         }
       });
-    },0);
+    });
   }
 
   componentWillUnmount() {

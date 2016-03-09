@@ -39,13 +39,13 @@ export default class FeedItem extends React.Component {
           <h1 className='title'>{item.title}</h1>
           <div className='meta'>
             <span className='published small'>
-              {item.published}
+              Published: {item.published}
             </span>
             <span className='author'>
               <a href={item.author.flink}>{item.author.name}</a>
             </span>
             <span className='published big'>
-              {item.published}
+              Published: {item.published}
             </span>
             <span className='view-flicker'>
               <a href={item.flink}>view on flickr</a>

@@ -21,11 +21,11 @@
     transition: none;
 
     &:hover, &:focus {
-      background: #008CBA;
+      background: $btn-color;
     }
 
     &::before{
-      background: #008CBA;
+      background: $btn-color;
       transition: none;
       border: none;
       content: '';

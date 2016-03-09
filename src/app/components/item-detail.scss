@@ -7,14 +7,19 @@
     margin-bottom: 2.4em;
   }
 
+  .subnav-top {
+    position: relative;
+  }
+
   .title {
     display: inline-block;
+    padding-right: 8.5em;
   }
 
   .back {
-    margin-top: 0.55em;
-    float: right;
-    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0.35em;
   }
 
   .btn-back {

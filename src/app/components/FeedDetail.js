@@ -15,7 +15,7 @@ import moment from 'moment';
 
 export default class FeedDetail extends React.Component {
   render() {
-    let item = this.props.item || {};
+    const item = this.props.item || {};
     item.published = moment(new Date(item.published)).format('DD MM');
     return (
       <article className='feed-item'>

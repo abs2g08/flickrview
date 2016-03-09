@@ -44,7 +44,7 @@ export default class ItemDetail extends React.Component {
   }
 
   render() {
-    let item = this.props.item;
+    const item = this.props.item;
     const date = new Date(item.published);
     const itemDetailClass = classNames(
       'item-detail', {

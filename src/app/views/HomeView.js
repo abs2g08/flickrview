@@ -17,7 +17,7 @@ class HomeView extends React.Component {
   }
 
   componentDidMount() {
-    FeedActions.getFeed();
+    FeedActions.getFeed({ tag: 'potato' });
   }
 
   render() {

@@ -44,7 +44,7 @@ class FeedStore {
     const authorId = opts.authorId;
     const itemId = opts.itemId;
 
-    let item = findItemByIds(authorId, itemId, this.state.items);
+    const item = findItemByIds(authorId, itemId, this.state.items);
     if(item) {
       this.mergeState({ item });
       loading(this, false);
@@ -83,7 +83,7 @@ class FeedStore {
   }
 
   onGetFeedSuccess(resp) {
-    let data = resp.data;
+    const data = resp.data;
     const opts = this.opts;
 
     data.items = this.formatData(data.items);

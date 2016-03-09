@@ -19,7 +19,7 @@ import { CoverImage } from '../components';
 
 export default class FeedItem extends React.Component {
   render() {
-    let item = this.props.item || {};
+    const item = this.props.item || {};
     const key = genKey('feed-item', item.id);
 
     const date = new Date(item.published);

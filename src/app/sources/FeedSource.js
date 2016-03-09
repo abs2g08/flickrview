@@ -4,8 +4,8 @@ import urls from '../const/urls';
 
 const FeedSource = {
   getFeed: {
-    remote(self, opts={}) {
-      const url = urls.publicPhotoFeed('potato');
+    remote(self, opts) {
+      const url = urls.publicPhotoFeed(opts.tag);
       return axios.get(url);
     },
     success: FeedActions.getFeedSuccess,

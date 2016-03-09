@@ -1,5 +1,6 @@
-@import "node_modules/compass-mixins/lib/compass";
 @import "variables.scss";
+@import "node_modules/compass-mixins/lib/compass";
+@import "~breakpoint-sass/stylesheets/breakpoint";
 
 .feed {
   .feed-content {
@@ -8,6 +9,7 @@
 
   .feed-item {
     position: relative;
+    min-width: 437px;
     background-color: $white;
     border: 1px solid $gray-ltr;
     margin-bottom: 10px;
@@ -22,6 +24,7 @@
     float: left;
     padding-left: 220px;
     width: 100%;
+    overflow: hidden;
     min-height: 100px;
   }
 
@@ -32,7 +35,7 @@
     text-overflow: ellipsis;
   }
 
-  .author, .published, .view-flicker{
+  .author, .published, .view-flicker {
     margin-right: 5px;
     display: inline-block;
     white-space: nowrap;
@@ -65,7 +68,7 @@
     width: 200px;
   }
 
-  @media only screen and (min-width: 40.063em) {
+  @include breakpoint(40.063em) {
     .info {
       min-height: 120px;
     }
@@ -74,7 +77,7 @@
     }
   }
 
-  @media only screen and (min-width: 800px) {
+  @include breakpoint(800px) {
     .title {
       margin: 0.15em 0px 0.3em 0;
     }

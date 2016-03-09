@@ -1,3 +1,6 @@
+@import "variables.scss";
+@import "~breakpoint-sass/stylesheets/breakpoint";
+
 .item-detail {
 
   .subnav-bottom {
@@ -15,17 +18,30 @@
     display: inline-block;
   }
 
-  // .btn-back {
-  //   &::before {
-  //     content: '';
-  //     width: 0;
-  //     height: 0;
-  //     border-top: 10px solid transparent;
-  //     border-bottom: 10px solid transparent;
-  //
-  //     border-right:10px solid blue;
-  //   }
-  // }
+  .btn-back {
+    transition: none;
+
+    &:hover, &:focus {
+      background: #008CBA;      
+    }
+
+    &::before{
+      background: #008CBA;
+      transition: background-color 300ms ease-out;
+      border: none;
+      content: '';
+      display: block;
+      height: 34px;
+      left: -17px;
+      position: absolute;
+      top: 7px;
+      -moz-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      width: 34px;
+    }
+  }
 
   .author {
     margin-right: 5px;
@@ -36,19 +52,8 @@
     display: inline-block;
   }
 
-  .info {
-    position: relative;
-  }
-
-  .photo {
-    position: absolute;
-  }
-
   .meta {
-    padding: 0px 20px 20px 20px;
     display: inline-block;
-    margin-left: 250px;
-    //white-space : nowrap;
   }
 
   .tags {
@@ -60,6 +65,21 @@
       background-color: #cfd6d9;
       border-radius: 5px;
       padding: 3px 5px;
+    }
+  }
+
+  @include breakpoint($m-breakpoint) {
+    .info {
+      position: relative;
+    }
+
+    .photo {
+      position: absolute;
+    }
+
+    .meta {
+      padding: 0px 20px 20px 20px;
+      margin-left: 250px;
     }
   }
 }

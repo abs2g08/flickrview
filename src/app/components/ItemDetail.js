@@ -58,12 +58,15 @@ export default class ItemDetail extends React.Component {
     item.description = this.formatDesc(item.description);
     item.published = moment(date).format('DD[th] MMMM YYYY [at] HH:mm');
     item.author.flink = urls.flickr.authorProfile(item.author_id);
+    item.flink = urls.flickr.itemDetail(item.author_id, item.id);
 
     return (
       <div className={itemDetailClass} key={'detail-view'}>
         <div className='subnav-top'>
           <div className='title'>
-            <h1>{item.title}</h1>
+            <a href={item.flink}>
+              <h1>{item.title}</h1>
+            </a>
           </div>
           <div className='back'>
             <Link to='/home'>

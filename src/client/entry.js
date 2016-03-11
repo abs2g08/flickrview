@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import Routes from '../app/Routes';
 import { Router, browserHistory } from 'react-router';
 import alt from '../app/alt';
-//import createBrowserHistory from 'history/lib/createBrowserHistory';
 import Iso from 'iso';
 
 // Favicon
@@ -17,8 +16,6 @@ import '../app/components/item-detail.scss';
 import '../app/styles/vendor.scss';
 import '../app/styles/variables.scss';
 import '../app/styles/app.scss';
-
-//const browserHistory = createBrowserHistory();
 
 // boostrap flux stores
 Iso.bootstrap((state) => {

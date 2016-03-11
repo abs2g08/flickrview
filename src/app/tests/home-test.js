@@ -15,15 +15,15 @@ describe('as a User I should be able to navigate to the home page and view its c
     unmountComponentAtNode(node)
   })
 
-  it('should render not logged in view without problems', (done) => {
+  it('should render list of flickr items', (done) => {
     render((
       <Router history={createHistory('/home')}>
         {Routes}
       </Router>
     ), node, ()=> {
-      const text = node.getElementsByClassName('please-login')[0].getElementsByTagName('p')[0].textContent;
-      expect(text).toEqual('You need to be logged in to view your feed');
-      done()
+      if(node.getElementsByClassName('feed-item').length > 0) {
+        done();
+      }
     })
   });
 });

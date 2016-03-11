@@ -71,7 +71,7 @@ export default class ItemDetail extends React.Component {
             </a>
           </div>
           <div className='back'>
-            <Link to='/home'>
+            <Link to='/'>
               <button className='btn btn-back'>Back</button>
             </Link>
           </div>

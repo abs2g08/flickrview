@@ -10,6 +10,6 @@ export function parseAuthorIdAndEmail(str) {
 
   return {
     email,
-    name: tmp.slice(1, -1)
+    nickname: tmp.slice(1, -1)
   };
 }

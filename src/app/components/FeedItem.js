@@ -6,12 +6,12 @@ import urls from '../const/urls';
 import { CoverImage } from '../components';
 
 /*
-  author: { email: "nobody@flickr.com", name: "Grant is a Grant" }
+  author: { email: "nobody@flickr.com", nickname: "Grant is a Grant" }
   author_id: "29794819@N08"
   date_taken: "2016-02-27T13:25:39-08:00"
   description: " <p><a href="https://www.flickr.com/people/thegrantyouknow/">..
   link: "https://www.flickr.com/photos/thegrantyouknow/25377070522/"
-  media: Object
+  media: { m: ... }
   published: "2016-03-04T11:10:08Z"
   tags: "ca canada macro campus nikon novascotia potato greenhouse..
   title: "Depth of Potato Field"
@@ -42,7 +42,7 @@ export default class FeedItem extends React.Component {
               Published: {item.published}
             </span>
             <span className='author'>
-              <a href={item.author.flink}>{item.author.name}</a>
+              <a href={item.author.flink}>{item.author.nickname}</a>
             </span>
             <span className='published big'>
               Published: {item.published}

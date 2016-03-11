@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 /*
-  author: { email: "nobody@flickr.com", name: "Grant is a Grant" }
+  author: { email: "nobody@flickr.com", nickname: "Grant is a Grant" }
   author_id: "29794819@N08"
   date_taken: "2016-02-27T13:25:39-08:00"
   description: " <p><a href="https://www.flickr.com/people/thegrantyouknow/">..
@@ -24,7 +24,7 @@ export default class FeedDetail extends React.Component {
         </div>
         <div className='meta'>
           <div className='author'>
-            {item.author.name}
+            {item.author.nickanme}
           </div>
           <div className='published'>
             {item.published}

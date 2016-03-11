@@ -6,7 +6,7 @@ import moment from 'moment';
 import classNames from 'classnames';
 
 /*
-  author: { email: "nobody@flickr.com", name: "Grant is a Grant" }
+  author: { email: "nobody@flickr.com", nickanme: "Grant is a Grant" }
   author_id: "29794819@N08"
   date_taken: "2016-02-27T13:25:39-08:00"
   description: " <p><a href="https://www.flickr.com/people/thegrantyouknow/">..
@@ -78,7 +78,7 @@ export default class ItemDetail extends React.Component {
         </div>
         <div className='subnav-bottom'>
           <div className='author'>
-            <a href={item.author.flink}>{item.author.name}</a>
+            <a href={item.author.flink}>{item.author.nickname}</a>
           </div>
           <div className='published'> | Published: {item.published}</div>
         </div>

@@ -1,9 +1,5 @@
 # Outstanding
 
-Add infinite scrolling to home page
-
-Convert all ems & rems to px
-
-Add more try catch statements
+Convert all px to ems
 
 Hook up test rig

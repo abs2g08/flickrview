@@ -11,6 +11,6 @@ export function genKey(className, id=0) {
    where store doesn't update view when action is fired in
    componentDidMount method
 */
-export function isoMorphicFix(callback) {
+export function isomorphicFix(callback) {
   window.setTimeout(callback, 0);
 }

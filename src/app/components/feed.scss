@@ -22,10 +22,10 @@
 
   .info {
     float: left;
-    padding-left: 220px;
+    padding-left: 15em;
     width: 100%;
     overflow: hidden;
-    min-height: 100px;
+    min-height: 6.7em;
   }
 
   .title {
@@ -36,7 +36,7 @@
   }
 
   .author, .published, .view-flicker {
-    margin-right: 20px;
+    margin-right: 1em;
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
@@ -64,8 +64,8 @@
   }
 
   .img-cover {
-    height: 100px;
-    width: 200px;
+    height: 6.7em;
+    width: 13em;
   }
 
   @include breakpoint(40.063em) {
@@ -73,7 +73,7 @@
       min-height: 8em;
     }
     .img-cover {
-      height: 120px;
+      height: 8em;
     }
   }
 

@@ -29,7 +29,7 @@ class FeedStore {
       items: [],
       item: blankItem,
       loading: true,
-      errorMsg: ''
+      errorMsg: null
     });
 
     this.registerAsync(FeedSource);
@@ -45,6 +45,7 @@ class FeedStore {
     const itemId = opts.itemId;
 
     const item = findItemByIds(authorId, itemId, this.state.items);
+
     if(item) {
       this.mergeState({ item });
       loading(this, false);
@@ -102,15 +103,13 @@ class FeedStore {
 
   onGetFeedError(resp) {
     this.mergeState({
-      errorMsg: resp.data
+      errorMsg: resp.statusText
     });
 
     this.opts = null;
     loading(this, false);
 
     redirect403(resp.status);
-
-    throw `onGetFeedError error: ${resp.errorMsg}`;
   }
 }
 

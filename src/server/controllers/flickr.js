@@ -1,5 +1,4 @@
 import request from 'request';
-import { respondOrDie } from '../utils';
 
 const flickrAPIRoot = 'https://api.flickr.com';
 
@@ -28,7 +27,7 @@ const publicPhotoFeed = (req, res)=> {
     url,
     json: true
   }, (err, resp, body)=> {
-    respondOrDie(err, ()=> {
+    if(!err) {
       body = parseFlickrJSONP(body);
 
       const items = body.items;
@@ -39,7 +38,11 @@ const publicPhotoFeed = (req, res)=> {
       res.send({
         items
       });
-    });
+    } else {
+      res.status(500).send({
+        errorMsg: err.error_message
+      });
+    }
   });
 };
 

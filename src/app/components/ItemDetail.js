@@ -31,6 +31,8 @@ export default class ItemDetail extends React.Component {
 
   formatDesc(text) {
     let description = '';
+
+    // only execute if running on server
     if(typeof(document) !== 'undefined') {
       const wrapper = document.createElement('div');
       wrapper.innerHTML = text;
@@ -84,12 +86,12 @@ export default class ItemDetail extends React.Component {
           <figure className='photo'>
             <img src={item.media.m}/>
           </figure>
-          <div className='meta'>
+          <aside className='meta'>
             <div className='description'>
               <span dangerouslySetInnerHTML={{__html: item.description}}/>
             </div>
             <div className='tags'>Tags: {item.tags}</div>
-          </div>
+          </aside>
         </seciton>
       </div>
     );

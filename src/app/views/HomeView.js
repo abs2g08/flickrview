@@ -22,7 +22,9 @@ class HomeView extends React.Component {
 
   render() {
     const loading = this.props.feedStore.loading || false;
+    const errorMsg = this.props.feedStore.errorMsg;
     const svgLoaderClass = classNames('svg-loader', { hidden: !loading });
+    const errorMsgClass = classNames('error-msg', { hidden: !errorMsg});
     const items = this.props.feedStore.items.asMutable({ deep: true });
 
     return (
@@ -30,6 +32,7 @@ class HomeView extends React.Component {
         <div>
           <Feed items={items} key={'feed'}/>
         </div>
+        <div className={errorMsgClass}>Oops, something went wrong</div>
         <div className='home-loader'>
           <svg className={svgLoaderClass}></svg>
         </div>

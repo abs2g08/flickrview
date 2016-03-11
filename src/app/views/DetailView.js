@@ -39,13 +39,16 @@ class DetailView extends React.Component {
 
   render() {
     const loading = this.props.feedStore.loading || false;
+    const errorMsg = this.props.feedStore.errorMsg;
     const svgLoaderClass = classNames('svg-loader', { hidden: !loading });
+    const errorMsgClass = classNames('error-msg', { hidden: !errorMsg});
     const item = this.props.feedStore.item.asMutable({ deep:true });
 
     return (
       <div className='detail-view' key={'detail-view'}>
         {this.props.feedStore.test}
         <ItemDetail item={item} key={'item-detail'}/>
+        <div className={errorMsgClass}>Oops, something went wrong</div>
         <div className='detail-loader'>
           <svg className={svgLoaderClass}></svg>
         </div>

@@ -5,8 +5,8 @@ export function findItemByIds(authorId, itemId, items) {
 }
 
 export function parseAuthorIdAndEmail(str) {
-  const tmp = str.split(' ')[1];
-  const email = str.split(' ')[0];
+  const tmp = str.match(/\(.*\)/)[0];
+  const email = str.split('(')[0].trim();
 
   return {
     email,

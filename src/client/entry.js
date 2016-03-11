@@ -10,7 +10,6 @@ import Iso from 'iso';
 import '../favicon.ico';
 
 // Comp styles
-import '../app/components/menu.scss';
 import '../app/components/feed.scss';
 import '../app/components/item-detail.scss';
 

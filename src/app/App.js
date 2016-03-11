@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Menu } from './components';
 
 class App extends React.Component {
   constructor(props) {
@@ -33,13 +32,9 @@ class App extends React.Component {
 
     return (
       <div className={containerClass}>
-        <div className='pusher'
-          onClick={this.closeDraw.bind(this)}>
-          <Menu onClick={this.onToggle.bind(this)}/>
-          <main className='container content'>
-            {this.props.children}
-          </main>
-        </div>
+        <main className='container content'>
+          {this.props.children}
+        </main>
       </div>
     );
   }

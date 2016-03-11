@@ -21,7 +21,7 @@ A test app for Potato
 ## Installation
 
 * `n 4.2.0`
-* `git clone git@github.com:abs2g08/instaview.git`
+* `git clone git@github.com:abs2g08/flickrview.git`
 * `cd instaview`
 * `npm install`
 

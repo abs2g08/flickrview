@@ -7,7 +7,7 @@ export function genKey(className, id=0) {
 }
 
 /*
-   fixes weird bug when rending react-router server side
+   fixes weird bug when rending react server side
    where store doesn't update view when action is fired in
    componentDidMount method
 */

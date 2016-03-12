@@ -1,7 +1,7 @@
 /*
   liveReload: sever that hosts compiled js/css assets (used for live reload)
   dist: a mock distribution server
-  devServer: a development server that hosts the isomorphic app
+  dev: a development server that hosts the isomorphic app
 */
 
 module.exports = {
@@ -13,12 +13,9 @@ module.exports = {
     port: 3000,
     host: 'localhost'
   },
-  devServer: {
+  dev: {
     port: 3000,
     host: 'localhost'
-  },
-  cors: {
-    origin: '*'//https://api.flickr.com/
   },
   filename: {
     app: 'app.js',

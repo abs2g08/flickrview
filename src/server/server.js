@@ -3,7 +3,14 @@ import express from 'express';
 import { iso, flickr } from './controllers';
 
 const app = express();
-const devServer = config.devServer;
+
+let serverConfig;
+
+if(process.env.NODE_ENV === 'prod') {
+  serverConfig = config.dist;
+} else {
+  serverConfig = config.dev;
+}
 
 app.use('/assets', express.static(`${__dirname}/../assets`));
 
@@ -13,10 +20,10 @@ app.set('view engine', 'jade');
 
 app.get('/publicPhotoFeed', flickr.publicPhotoFeed);
 
-// front-end routing
+// front-end isomorphic routing
 app.get('/*', iso.index);
 
-const server = app.listen(devServer.port, ()=> {
+const server = app.listen(serverConfig.port, ()=> {
   const host = server.address().address;
   const port = server.address().port;
 

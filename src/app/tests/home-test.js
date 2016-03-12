@@ -1,13 +1,11 @@
 import React from 'react';
-import { Router } from 'react-router';
+import { Router, createMemoryHistory } from 'react-router';
 import Routes from '../Routes';
 import { render, unmountComponentAtNode } from 'react-dom';
-import createHistory from 'history/lib/createMemoryHistory';
-import expect from 'expect';
 
 let node;
 
-describe('as a User I should be able to navigate to the home page and view its content', ()=> {
+describe('as a User I should be able to navigate to the home page and view its content', function() {
   beforeEach(()=> {
     node = document.createElement('div');
   });
@@ -15,17 +13,16 @@ describe('as a User I should be able to navigate to the home page and view its c
     unmountComponentAtNode(node)
   })
 
-  it('should render list of flickr items', (done) => {
+  it('should render the home page', function(done) {
     render((
-      <Router history={createHistory('/home')}>
+      <Router history={createMemoryHistory('/home')}>
         {Routes}
       </Router>
-    ), node, ()=> {
-      if(node.getElementsByClassName('feed-item').length > 0) {
+    ), node, function() {
+      // check if the home-view container loads
+      if(node.getElementsByClassName('home-view').length > 0) {
         done();
       }
     })
   });
 });
-
-//TO-DO: add more tests for React components

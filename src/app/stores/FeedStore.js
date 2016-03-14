@@ -57,8 +57,12 @@ class FeedStore {
   }
 
   formatData(data) {
-    return data.map((item)=>{
-      item.author = parseAuthorIdAndEmail(item.author);
+    return data.map((item)=> {
+      try {
+        item.author = parseAuthorIdAndEmail(item.author);
+      } catch(e) {
+        item.author = { email: '', name: '' };
+      }
       return item;
     });
   }

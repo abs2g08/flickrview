@@ -17,9 +17,13 @@ export default class Feed extends React.Component {
         {
           items.map((item, id) => {
             const key = genKey('feed-item', id);
-            return (
-              <FeedItem item={item} key={key}/>
-            );
+            let feedItem;
+            try {
+              feedItem = <FeedItem item={item} key={key}/>;
+            } catch(e) {
+              feedItem = null;
+            }
+            return (feedItem);
           })
         }
         </div>

@@ -22,11 +22,6 @@
   }
 }
 
-.static-row {
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem;
-}
-
 @mixin transform($transforms) {
   -moz-transform: $transforms;
   -o-transform: $transforms;

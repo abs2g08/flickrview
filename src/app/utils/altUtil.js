@@ -27,5 +27,9 @@ export function seamlessImmutable(StoreModel) {
     }
   };
 
+  StoreModel.prototype.mergeState = function(obj) {
+    this.setState(this.state.merge(obj));
+  }
+
   return StoreModel;
 };

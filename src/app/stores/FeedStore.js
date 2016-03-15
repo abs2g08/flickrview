@@ -36,10 +36,6 @@ class FeedStore {
     this.bindActions(FeedActions);
   }
 
-  mergeState(obj) {
-    this.setState(this.state.merge(obj));
-  }
-
   lazyLoadItem(opts) {
     const authorId = opts.authorId;
     const itemId = opts.itemId;

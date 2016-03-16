@@ -38,11 +38,12 @@ class DetailView extends React.Component {
   }
 
   render() {
-    const loading = this.props.feedStore.loading || false;
-    const errorMsg = this.props.feedStore.errorMsg;
+    const feedStore = this.props.feedStore.asMutable({ deep:true });
+    const loading = feedStore.loading || false;
+    const errorMsg = feedStore.errorMsg;
     const svgLoaderClass = classNames('svg-loader', { hidden: !loading });
     const errorMsgClass = classNames('error-msg', { hidden: !errorMsg});
-    const item = this.props.feedStore.item.asMutable({ deep:true });
+    const item = feedStore.item;
 
     return (
       <div className='detail-view' key={'detail-view'}>

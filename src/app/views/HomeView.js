@@ -21,11 +21,12 @@ class HomeView extends React.Component {
   }
 
   render() {
-    const loading = this.props.feedStore.loading || false;
-    const errorMsg = this.props.feedStore.errorMsg;
+    const feedStore = this.props.feedStore.asMutable({ deep: true });
+    const loading = feedStore.loading || false;
+    const errorMsg = feedStore.errorMsg;
     const svgLoaderClass = classNames('svg-loader', { hidden: !loading });
     const errorMsgClass = classNames('error-msg', { hidden: !errorMsg});
-    const items = this.props.feedStore.items.asMutable({ deep: true });
+    const items = feedStore.items;
 
     return (
       <div className='home-view' key={'home-view'}>

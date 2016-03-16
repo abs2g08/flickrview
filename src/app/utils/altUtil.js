@@ -1,3 +1,5 @@
+import Immutable from 'seamless-immutable';
+
 export function generateAjaxActions(context, names) {
   const actionList = [];
   names.forEach(function(name) {

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Router, createMemoryHistory } from 'react-router';
-import Routes from '../Routes';
 import { render, unmountComponentAtNode } from 'react-dom';
+import Routes from '../Routes';
+import { expect } from 'chai';
 
 let node;
 
@@ -20,9 +21,11 @@ describe('as a User I should be able to navigate to the home page and view its c
       </Router>
     ), node, function() {
       // check if the home-view container loads
-      if(node.getElementsByClassName('home-view').length > 0) {
-        done();
-      }
+      const homeView = node.getElementsByClassName('home-view');
+
+      expect(homeView).not.to.be.an('undefined');
+      expect(homeView).to.have.length.above(0);
+      done();
     })
   });
 });

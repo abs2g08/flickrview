@@ -7,7 +7,7 @@ class App extends React.Component {
 
     this.state = {
       drawOpen: false
-    }
+    };
   }
 
   onToggle(e) {

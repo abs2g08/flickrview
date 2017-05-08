@@ -17,7 +17,7 @@ import '../app/styles/vendor.scss';
 import '../app/styles/variables.scss';
 import '../app/styles/app.scss';
 
-// boostrap flux stores
+// boostrap flux stores with login data
 Iso.bootstrap((state) => {
   console.log('bootsrapping data...');
   alt.bootstrap(JSON.stringify({
@@ -33,4 +33,4 @@ render(
     {Routes}
   </Router>,
   document.getElementById('app')
-)
+);

@@ -17,10 +17,13 @@ class HomeView extends React.Component {
   }
 
   componentDidMount() {
-    FeedActions.getFeed({ tag: 'potato' });
+    FeedActions.getFeed({
+      tag: 'potato'
+    });
   }
 
   render() {
+    // @TODO: asMutable on render is a performance hit, needs refactoring
     const feedStore = this.props.feedStore.asMutable({ deep: true });
     const loading = feedStore.loading || false;
     const errorMsg = feedStore.errorMsg;

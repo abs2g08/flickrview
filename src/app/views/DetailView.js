@@ -18,7 +18,7 @@ class DetailView extends React.Component {
   }
 
   componentDidMount() {
-    isomorphicFix(()=>{
+    isomorphicFix(() => {
       const params = this.props.params;
       const authorId = params.authorId;
       const itemId = params.itemId;
@@ -38,6 +38,7 @@ class DetailView extends React.Component {
   }
 
   render() {
+    // @TODO: asMutable on render is a performance hit, needs refactoring
     const feedStore = this.props.feedStore.asMutable({ deep:true });
     const loading = feedStore.loading || false;
     const errorMsg = feedStore.errorMsg;

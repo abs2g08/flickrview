@@ -15,7 +15,7 @@ if(process.env.NODE_ENV === 'prod') {
   network = config.liveReload;
 }
 
-const index = (req, res)=> {
+const index = (req, res) => {
   const location = createMemoryHistory().createLocation(req.url);
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
